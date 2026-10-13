@@ -132,7 +132,7 @@
   <div class="grid g3" style="margin-top:12px">
     <div class="card">
       <h3 id="timeTitle">Where is time going? — 11-Oct</h3>
-      <div class="donut" id="donut"><div class="hole"><b id="donutC">2,880</b><span class="muted" style="font-size:10px">planned min</span></div></div>
+      <div class="donut" id="donut"><div class="hole"><b id="donutC">2,830</b><span class="muted" style="font-size:10px">planned prod. min</span></div></div>
       <div class="legend" id="donutL"></div>
       <p class="muted" style="margin:10px 0 0;font-size:11px" id="timeNote"></p>
     </div>
@@ -220,17 +220,17 @@ const DATA = {
   day: {
     basis:'Basis: single day — 12-Oct-2026 (shifts A–C)',
     kpiTitle:'CURRENT SCENARIO — OEE (12-OCT-2026)',
-    kpi:{A:48.8,P:99.4,Q:96.3,OEE:46.7}, targets:{A:90,P:86,Q:97,OEE:75},
+    kpi:{A:99.3,P:99.4,Q:96.3,OEE:95.0}, targets:{A:90,P:86,Q:97,OEE:75},
     timeTitle:'Where is time going? — 12-Oct',
-    time:{planned:5760, avail:2810, down:2950, availPct:48.8, downPct:51.2,
-      note:'2,930 min planned (furnace panel off / civil works) + 20 min unplanned (NPT). Availability is the #1 loss.'},
+    time:{planned:2830, avail:2810, down:20, availPct:99.3, downPct:0.7,
+      note:'20 min unplanned (NPT). 2,930 min planned downtime excluded from availability.'},
     millsTitle:'OEE by machine — 12-Oct',
     mills:[
-      {n:'CCM',v:45.7,A:50.3,P:91.8,Q:98.8,out:332.8,target:365},
-      {n:'Furnace 1',v:70.9,A:72.9,P:103.6,Q:93.9,out:181.3,target:176},
-      {n:'Furnace 2',v:67.7,A:71.9,P:100.3,Q:93.9,out:173.1,target:176}],
+      {n:'CCM',v:90.1,A:99.3,P:91.8,Q:98.8,out:332.76,target:365},
+      {n:'Furnace 1',v:97.3,A:100.0,P:103.6,Q:93.9,out:181.3,target:176},
+      {n:'Furnace 2',v:92.9,A:98.6,P:100.3,Q:93.9,out:173.08,target:176}],
     factorsTitle:'Find the bottleneck — 12-Oct',
-    factors:[{n:'Availability',v:48.8,t:90},{n:'Performance',v:99.4,t:86},{n:'Quality',v:96.3,t:97}],
+    factors:[{n:'Availability',v:99.3,t:90},{n:'Performance',v:99.4,t:86},{n:'Quality',v:96.3,t:97}],
     lossTitle:'Top downtime — 12-Oct (min)',
     losses:[{n:'M01- Coil & yeok short / carbon',v:20}],
     lossNote:'Total unplanned NPT <b>20 min</b> (mechanical). Planned downtime excluded from breakdown.',
@@ -244,10 +244,10 @@ const DATA = {
     ],
     shiftTitle:'Shift OEE — 12-Oct',
     shifts:[
-      {n:'Shift A',v:65.0,A:66.1,P:102.0,Q:96.3,Out:318.9},
-      {n:'Shift B',v:24.4,A:27.6,P:91.9,Q:96.3,Out:119.8},
-      {n:'Shift C',v:50.6,A:52.6,P:99.9,Q:96.3,Out:248.4}],
-    quant:'2,950 min downtime on 12-Oct — 2,930 min planned (furnace panel off) + 20 min NPT. Best shift A (65.0%); CCM OEE 45.7%.',
+      {n:'Shift A',v:96.7,A:98.4,P:102.0,Q:96.3,Out:318.87},
+      {n:'Shift B',v:88.4,A:100.0,P:91.9,Q:96.3,Out:119.82},
+      {n:'Shift C',v:96.2,A:100.0,P:99.9,Q:96.3,Out:248.45}],
+    quant:'20 min unplanned NPT on 12-Oct; 2,930 min planned downtime excluded from availability. Best shift A (96.7%); CCM OEE 90.1%.',
     opp:{ rows:[{mill:'CCM',min:5,cyc:2,mt:2.5},{mill:'Furnace 1',min:0,cyc:6,mt:0},{mill:'Furnace 2',min:15,cyc:6,mt:2.5},{mill:'Furnace 3',min:0,cyc:6,mt:0}],
       totalMin:20, totalMT:5, plannedMin:0, plannedMT:0,
       note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~5 MT</b> of output lost to unplanned NPT on 12-Oct.' }
@@ -255,17 +255,17 @@ const DATA = {
   mtd: {
     basis:'Basis: 01–12 Oct 2026 month-to-date (shifts A–C)',
     kpiTitle:'CURRENT SCENARIO — OEE (OCT 2026 MTD)',
-    kpi:{A:39.3,P:103.0,Q:96.3,OEE:38.9}, targets:{A:90,P:86,Q:97,OEE:75},
+    kpi:{A:96.5,P:103.0,Q:96.3,OEE:95.7}, targets:{A:90,P:86,Q:97,OEE:75},
     timeTitle:'Where is time going? — Oct MTD',
-    time:{planned:69120, avail:27138, down:41982, availPct:39.3, downPct:60.7,
-      note:'41,001 min planned downtime + 981 min unplanned (NPT). Availability is the #1 loss.'},
+    time:{planned:28119, avail:27138, down:981, availPct:96.5, downPct:3.5,
+      note:'981 min unplanned (NPT). 41,001 min planned downtime excluded from availability.'},
     millsTitle:'OEE by machine — Oct MTD',
     mills:[
-      {n:'CCM',v:38.1,A:40.6,P:95.0,Q:98.8,out:3330.6,target:3636},
-      {n:'Furnace 1',v:58.7,A:58.9,P:106.1,Q:93.9,out:1800.6,target:1742},
-      {n:'Furnace 2',v:56.9,A:57.5,P:105.4,Q:93.9,out:1746.4,target:1742}],
+      {n:'CCM',v:90.6,A:96.5,P:95.0,Q:98.8,out:3330.6,target:3636},
+      {n:'Furnace 1',v:97.3,A:97.7,P:106.1,Q:93.9,out:1800.63,target:1742},
+      {n:'Furnace 2',v:94.4,A:95.4,P:105.4,Q:93.9,out:1746.35,target:1742}],
     factorsTitle:'Find the bottleneck — Oct MTD',
-    factors:[{n:'Availability',v:39.3,t:90},{n:'Performance',v:103.0,t:86},{n:'Quality',v:96.3,t:97}],
+    factors:[{n:'Availability',v:96.5,t:90},{n:'Performance',v:103.0,t:86},{n:'Quality',v:96.3,t:97}],
     lossTitle:'Top downtime — Oct MTD (min)',
     losses:[{n:'U01- REB Voltage Down',v:416},{n:'E01- Selector switch fault',v:300},{n:'R01- Scrap Shortage',v:150},{n:'R01- Furnace Breakdown',v:50},{n:'R01- Sequence Gap',v:45},{n:'M01- Coil & yeok short / carbon',v:20}],
     lossNote:'Total unplanned NPT <b>981 min</b> (planned downtime excluded).',
@@ -282,10 +282,10 @@ const DATA = {
     ],
     shiftTitle:'Shift OEE — Oct MTD',
     shifts:[
-      {n:'Shift A',v:52.0,A:52.4,P:103.1,Q:96.3,Out:3065.4},
-      {n:'Shift B',v:21.3,A:20.8,P:106.4,Q:96.3,Out:1254.7},
-      {n:'Shift C',v:43.4,A:44.6,P:101.2,Q:96.3,Out:2557.4}],
-    quant:'981 min unplanned NPT + 41,001 min planned downtime. CCM OEE 38.1%; Furnace 1/2 ~57–59%.',
+      {n:'Shift A',v:93.4,A:94.1,P:103.1,Q:96.3,Out:3065.45},
+      {n:'Shift B',v:102.0,A:99.6,P:106.4,Q:96.3,Out:1254.74},
+      {n:'Shift C',v:95.6,A:98.1,P:101.2,Q:96.3,Out:2557.39}],
+    quant:'981 min unplanned NPT + 41,001 min planned downtime (excluded from availability). CCM OEE 90.6%; Furnace 1/2 ~94–97%.',
     opp:{ rows:[{mill:'CCM',min:255,cyc:2,mt:127.5},{mill:'Furnace 1',min:243,cyc:6,mt:40.5},{mill:'Furnace 2',min:483,cyc:6,mt:80.5},{mill:'Furnace 3',min:0,cyc:6,mt:0}],
       totalMin:981, totalMT:249, plannedMin:0, plannedMT:0,
       note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~249 MT</b> of output lost to unplanned NPT this month.' }
