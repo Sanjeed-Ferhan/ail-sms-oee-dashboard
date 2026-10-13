@@ -232,16 +232,15 @@ const DATA = {
     factorsTitle:'Find the bottleneck — 12-Oct',
     factors:[{n:'Availability',v:48.8,t:90},{n:'Performance',v:99.4,t:86},{n:'Quality',v:96.3,t:97}],
     lossTitle:'Top downtime — 12-Oct (min)',
-    losses:[{n:'P01- Furnace panel off',v:2930},{n:'M01- Coil & yeok short/carbon',v:20}],
-    lossNote:'Total 2,950 min — <b>2,930 min planned</b> (furnace panel off / civil works) + 20 min NPT.',
+    losses:[{n:'M01- Coil & yeok short / carbon',v:20}],
+    lossNote:'Total unplanned NPT <b>20 min</b> (mechanical). Planned downtime excluded from breakdown.',
     catTitle:'Downtime by category — 12-Oct (min)',
-    cats:[{n:'Planned Down Time',v:2930},{n:'Mechanical Breakdown',v:20}],
-    catNote:'Planned downtime dominates; unplanned NPT only 20 min (mechanical).',
+    cats:[{n:'Mechanical Breakdown',v:20}],
+    catNote:'Unplanned NPT only — 20 min (mechanical).',
     boardTitle:'Shift Action Board — downtime reasons (12-Oct)',
-    boardNote:'Planned 2,930 min + unplanned NPT 20 min.',
+    boardNote:'Total unplanned NPT (12-Oct) = 20 min. Planned downtime excluded.',
     board:[
-      {p:'P1',pcls:'t-red',reason:'Furnace panel off',sub:'· Planned Down · civil works',min:2930,mill:'All',action:'Re-plan / stagger the civil-works shutdown; move to off-peak demand; shorten duration.',team:'Projects / Maintenance',tcls:'t-red',planned:true},
-      {p:'P2',pcls:'t-green',reason:'Coil & yeok short / carbon',sub:'· M01 · Mechanical',min:20,mill:'CCM',action:'Replace coil &amp; yoke; check carbon contacts; hold spares.',team:'Mechanical',tcls:'t-green'}
+      {p:'P1',pcls:'t-green',reason:'Coil & yeok short / carbon',sub:'· M01 · Mechanical',min:20,mill:'CCM',action:'Replace coil &amp; yoke; check carbon contacts; hold spares.',team:'Mechanical',tcls:'t-green'}
     ],
     shiftTitle:'Shift OEE — 12-Oct',
     shifts:[
@@ -250,8 +249,8 @@ const DATA = {
       {n:'Shift C',v:50.6,A:52.6,P:99.9,Q:96.3,Out:248.4}],
     quant:'2,950 min downtime on 12-Oct — 2,930 min planned (furnace panel off) + 20 min NPT. Best shift A (65.0%); CCM OEE 45.7%.',
     opp:{ rows:[{mill:'CCM',min:5,cyc:2,mt:2.5},{mill:'Furnace 1',min:0,cyc:6,mt:0},{mill:'Furnace 2',min:15,cyc:6,mt:2.5},{mill:'Furnace 3',min:0,cyc:6,mt:0}],
-      totalMin:20, totalMT:5, plannedMin:2930, plannedMT:725,
-      note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~5 MT</b> unplanned on 12-Oct, plus <b>~725 MT</b> from planned downtime.' }
+      totalMin:20, totalMT:5, plannedMin:0, plannedMT:0,
+      note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~5 MT</b> of output lost to unplanned NPT on 12-Oct.' }
   },
   mtd: {
     basis:'Basis: 01–12 Oct 2026 month-to-date (shifts A–C)',
@@ -268,20 +267,18 @@ const DATA = {
     factorsTitle:'Find the bottleneck — Oct MTD',
     factors:[{n:'Availability',v:39.3,t:90},{n:'Performance',v:103.0,t:86},{n:'Quality',v:96.3,t:97}],
     lossTitle:'Top downtime — Oct MTD (min)',
-    losses:[{n:'P01- Furnace panel off',v:29385},{n:'P01- Schedule Maintenance',v:11616},{n:'U01- REB Voltage Down',v:416},{n:'E01- Selector switch fault',v:300},{n:'R01- Scrap Shortage',v:150},{n:'R01- Furnace Breakdown',v:50}],
-    lossNote:'Total 41,982 min — <b>41,001 min planned</b> + 981 min unplanned (NPT).',
+    losses:[{n:'U01- REB Voltage Down',v:416},{n:'E01- Selector switch fault',v:300},{n:'R01- Scrap Shortage',v:150},{n:'R01- Furnace Breakdown',v:50},{n:'R01- Sequence Gap',v:45},{n:'M01- Coil & yeok short / carbon',v:20}],
+    lossNote:'Total unplanned NPT <b>981 min</b> (planned downtime excluded).',
     catTitle:'Downtime by category — Oct MTD (min)',
-    cats:[{n:'Planned Down Time',v:41001},{n:'Utility (Electricity)',v:416},{n:'Electrical Breakdown',v:300},{n:'Raw Material Shortage',v:245},{n:'Mechanical Breakdown',v:20}],
-    catNote:'Planned downtime dominates. Unplanned NPT 981 min.',
+    cats:[{n:'Utility (Electricity)',v:416},{n:'Electrical Breakdown',v:300},{n:'Raw Material Shortage',v:245},{n:'Mechanical Breakdown',v:20}],
+    catNote:'Unplanned NPT only — 981 min (planned downtime excluded).',
     boardTitle:'Shift Action Board — downtime reasons (Oct MTD)',
-    boardNote:'Planned 41,001 min + unplanned NPT 981 min.',
+    boardNote:'Total unplanned NPT (Oct MTD) = 981 min. Planned downtime excluded.',
     board:[
-      {p:'P1',pcls:'t-red',reason:'Furnace panel off',sub:'· Planned Down · civil works',min:29385,mill:'All',action:'Re-plan / stagger the civil-works shutdown; move to off-peak demand; shorten duration.',team:'Projects / Maintenance',tcls:'t-red',planned:true},
-      {p:'P2',pcls:'t-red',reason:'Schedule Maintenance',sub:'· Planned Down',min:11616,mill:'All',action:'Optimise PM scope &amp; timing; combine with panel works; shorten duration.',team:'Maintenance',tcls:'t-red',planned:true},
-      {p:'P3',pcls:'t-amber',reason:'REB voltage down',sub:'· Utility (Electricity)',min:416,mill:'All',action:'Track REB supply quality; auto-changeover / captive power; power plan.',team:'Electrical / Utility (REB)',tcls:'t-amber'},
-      {p:'P4',pcls:'t-amber',reason:'Selector switch fault',sub:'· E01 · Electrical',min:300,mill:'CCM',action:'Inspect / replace selector switch; electrical PM; critical spares.',team:'Electrical',tcls:'t-amber'},
-      {p:'P5',pcls:'t-amber',reason:'Scrap shortage / furnace / sequence',sub:'· R01 · Raw material',min:245,mill:'All',action:'Scrap procurement &amp; yard stock planning; sequence optimisation.',team:'Procurement → Production',tcls:'t-amber'},
-      {p:'P6',pcls:'t-green',reason:'Coil & yeok short / carbon',sub:'· M01 · Mechanical',min:20,mill:'CCM',action:'Replace coil &amp; yoke; check carbon contacts; hold spares.',team:'Mechanical',tcls:'t-green'}
+      {p:'P1',pcls:'t-red',reason:'REB voltage down',sub:'· Utility (Electricity)',min:416,mill:'All',action:'Track REB supply quality; auto-changeover / captive power; power plan.',team:'Electrical / Utility (REB)',tcls:'t-red'},
+      {p:'P2',pcls:'t-amber',reason:'Selector switch fault',sub:'· E01 · Electrical',min:300,mill:'CCM',action:'Inspect / replace selector switch; electrical PM; critical spares.',team:'Electrical',tcls:'t-amber'},
+      {p:'P3',pcls:'t-amber',reason:'Scrap shortage / furnace / sequence',sub:'· R01 · Raw material',min:245,mill:'All',action:'Scrap procurement &amp; yard stock planning; sequence optimisation.',team:'Procurement → Production',tcls:'t-amber'},
+      {p:'P4',pcls:'t-green',reason:'Coil & yeok short / carbon',sub:'· M01 · Mechanical',min:20,mill:'CCM',action:'Replace coil &amp; yoke; check carbon contacts; hold spares.',team:'Mechanical',tcls:'t-green'}
     ],
     shiftTitle:'Shift OEE — Oct MTD',
     shifts:[
@@ -290,8 +287,8 @@ const DATA = {
       {n:'Shift C',v:43.4,A:44.6,P:101.2,Q:96.3,Out:2557.4}],
     quant:'981 min unplanned NPT + 41,001 min planned downtime. CCM OEE 38.1%; Furnace 1/2 ~57–59%.',
     opp:{ rows:[{mill:'CCM',min:255,cyc:2,mt:127.5},{mill:'Furnace 1',min:243,cyc:6,mt:40.5},{mill:'Furnace 2',min:483,cyc:6,mt:80.5},{mill:'Furnace 3',min:0,cyc:6,mt:0}],
-      totalMin:981, totalMT:249, plannedMin:41001, plannedMT:10171,
-      note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~249 MT</b> unplanned this month, plus <b>~10,171 MT</b> from planned downtime.' }
+      totalMin:981, totalMT:249, plannedMin:0, plannedMT:0,
+      note:'Opportunity loss = NPT min ÷ cycle time (CCM 2, Furnace 6 min/MT) → <b>~249 MT</b> of output lost to unplanned NPT this month.' }
   }
 };
 
